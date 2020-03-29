@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <h1 id="corona-szenario-analyse-kmu">Corona Szenario-Analyse KMU</h1>
+        <h2 id="problem-entscheidungen-in-unsicheren-zeiten">Problem: Entscheidungen in unsicheren Zeiten</h2>
+        <p>Es ist sicher, <em>dass</em> die Corona-Krise auch noch mittel- und langfristig die Geschäftstätigkeit von
+            KMU
+            beeinflussen wird. Es ist aber unsicher <em>wie</em> und <em>wie lange</em>.</p>
+        <h2 id="lösung-szenario-analyse">Lösung: Szenario-Analyse</h2>
+        <p>Eine Szenario-Analyse kann helfen, mittel- und langfristige Maßnahmen angesichts einer ungewissen Zukunft zu
+            formulieren:</p>
+        <ol style="list-style-type: decimal">
+            <li>Vier mögliche Szenarien der Corona-Krise werden angesetzt.</li>
+            <li>Schlüsselfaktoren für die Aufrechterhaltung des Kerngeschäfts des jeweiligen KMUs werden definiert.</li>
+            <li>Mittels einer Tabelle können dann die Auswirkungen der unterschiedlichen Szenarien auf die einzelnen
+                Schlüsselfaktoren analysiert werden.</li>
+            <li>Auf Basis der Tabelle werden Maßnahmen für die unterschiedlichen Szenarien definiert, um vorbereitet und
+                rechtzeitig reagieren zu können. Je nach dem, welches Szenario Realität wird.</li>
+        </ol>
+    </div>
+    <div class="container">
+        <h2 id="vier-mögliche-szenarien">1. Vier mögliche Szenarien</h2>
+        <p><strong>Image</strong></p>
+        <p>Niemand weiß genau, wie lange und wir stark die Corona-Krise das wirtschaftliche und gesellschaftliche Leben
+            beeinflussen wird. Folgende vier Szenarien sind möglich:</p>
+        <h3 id="szenario-1-kurz-und-schwach">Szenario 1: Kurz und Schwach</h3>
+        <p>Die Corona-Krise hält wenige Wochen an, mit eher schwachen Auswirkungen auf das gesellschaftliche Leben und
+            wirtschaftliche Abläufe.</p>
+        <h3 id="szenario-2-lange-und-schwach">Szenario 2: Lange und Schwach</h3>
+        <p>Die Corona-Krise hält noch lange an, aber mit eher schwachen Auswirkungen.</p>
+        <h3 id="szenario-3-kurz-und-stark">Szenario 3: Kurz und Stark</h3>
+        <p>Die Corona-Krise hat für kurze Zeit sehr starke Auswirkungen.</p>
+        <h3 id="szenario-4-lange-und-stark">Szenario 4: Lange und Stark</h3>
+        <p>Die Corona-Krise hält lange an mit starken Auswirkungen.</p>
+    </div>
+    <div class="container">
+        <h2 id="schlüsselfaktoren-ihres-unternehmens">2. Schlüsselfaktoren Ihres Unternehmens</h2>
+        <input type="text" id="candidate" />
+        <button onclick="addItem()">add item</button>
+        <button onclick="removeItem()">remove item</button>
+        <div id="thelist" ></div>
+    </div>
+    <div class="container">
+        <h2 id="szenario-analyse-für-ihr-kmu">3. Szenario-Analyse für Ihr KMU</h2>
+        <div id="thetable"></div>
+    </div>
+    <div class="container">
+        <h2 id="mögliche-maßnahmen">4. Mögliche Maßnahmen</h2>
+        <h3 id="szenario-1-kurz-und-schwach-1">Szenario 1: Kurz und Schwach</h3>
+        <ul>
+            <li>...</li>
+            <li>...</li>
+        </ul>
+        <h3 id="szenario-2-lange-und-schwach-1">Szenario 2: Lange und Schwach</h3>
+        <ul>
+            <li>...</li>
+        </ul>
+        <h3 id="szenario-3-kurz-und-stark-1">Szenario 3: Kurz und Stark</h3>
+        <ul>
+            <li>...</li>
+        </ul>
+        <h3 id="szenario-4-lange-und-stark-1">Szenario 4: Lange und Stark</h3>
+    </div>
+
+    <script src="custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="jquery.sortable.js"></script> -->
+</body>
+
+</html>
