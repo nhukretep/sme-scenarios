@@ -1,15 +1,15 @@
-// $(function () {
-//   $('.sortable').sortable();
-//   $('.handles').sortable({
-//     handle: 'span'
-//   });
-//   $('.connected').sortable({
-//     connectWith: '.connected'
-//   });
-//   $('.exclude').sortable({
-//     items: ':not(.disabled)'
-//   });
-// });
+function PDFonClick() {
+  var pdf = new jsPDF('p', 'pt', 'letter');
+  pdf.canvas.height = 72 * 11;
+  pdf.canvas.width = 72 * 8.5;
+
+  pdf.fromHTML(document.body);
+
+  pdf.save('report.pdf');
+};
+
+var element = document.getElementById("pdfDownload");
+element.addEventListener("click", PDFonClick);
 
 var factors = ["Personal", "Fertigung", "Verwaltung", "Auftragseingang", "Materiallieferung", "Liquidität"];
 var scenarios = ["Faktor", "Szenario 1", "Szenario 2", "Szenario 3", "Szenario 4"];
@@ -48,8 +48,7 @@ function updateList() {
 
 function makeTable(array) {
   tbl = document.createElement('table');
-  tbl.style.width = '100px';
-
+  tbl.setAttribute('class', 'table table-bordered table-responsive-md table-striped')
   let thead = tbl.createTHead();
   let row = thead.insertRow();
   for (let key of scenarios) {
@@ -67,6 +66,9 @@ function makeTable(array) {
       if (i == 0) {
         let text = document.createTextNode(element);
         cell.appendChild(text);
+      }
+      else {
+        cell.setAttribute('contenteditable', 'true');
       }
     }
   }
