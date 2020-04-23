@@ -93,6 +93,7 @@ updateTable();
 
 matrix = [];
 function updateMatrix(){
+  matrix = [];
   var table = document.getElementById("tbl");
   for (let row of table.rows) 
   {
