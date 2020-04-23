@@ -1,54 +1,60 @@
-function PDFonClick() {
-  var pdf = new jsPDF('p', 'pt', 'letter');
-  pdf.canvas.height = 72 * 11;
-  pdf.canvas.width = 72 * 8.5;
-
-  pdf.fromHTML(document.body);
-
-  pdf.save('report.pdf');
+window.onbeforeunload = function(e) {
+  return 'Please press the Logout button to logout.';
 };
 
-var element = document.getElementById("pdfDownload");
-element.addEventListener("click", PDFonClick);
-
+//LIST WITH FACTORS
 var factors = ["Personal", "Fertigung", "Verwaltung", "Auftragseingang", "Materiallieferung", "Liquidität"];
 var scenarios = ["Faktor", "Szenario 1", "Szenario 2", "Szenario 3", "Szenario 4"];
 
-function makeUL(array) {
-  // Create the list element:
+function makeList(array) {
   var list = document.createElement('ul');
   list.setAttribute('id', 'list');
 
   for (var i = 0; i < array.length; i++) {
-    // Create the list item:
     var item = document.createElement('li');
-
-    // var span = document.createElement("span");
-    // span.appendChild(document.createTextNode(':: '));
-    // item.appendChild(span)
-
     item.setAttribute('id', i);
     item.setAttribute('draggable', 'true')
-    // Set its contents:
     item.appendChild(document.createTextNode(array[i]));
-
-    // Add it to the list:
     list.appendChild(item);
   }
 
-  // Finally, return the constructed list:
+
   return list;
 }
 
 function updateList() {
   var list = document.getElementById('thelist')
   list.innerHTML = "";
-  list.appendChild(makeUL(factors));
+  list.appendChild(makeList(factors));
 }
+
+function addItemToList() {
+  var candidate = document.getElementById("candidate");
+  if (!!candidate.value) {
+    factors.push(candidate.value);
+    updateList();
+    updateTable();
+  }
+}
+
+function removeItemFromList() {
+  if (!!factors) {
+    for (var i = 0; i < selected.length; i++) {
+      factors.splice(selected[i], 1);
+      updateList();
+      updateTable();
+    }
+  }
+}
+
+updateList();
+
+// TABLE WITH FACTORS AND SCENARIOS
 
 function makeTable(array) {
   tbl = document.createElement('table');
   tbl.setAttribute('class', 'table table-bordered table-responsive-md table-striped')
+  tbl.setAttribute('id', 'tbl')
   let thead = tbl.createTHead();
   let row = thead.insertRow();
   for (let key of scenarios) {
@@ -75,34 +81,33 @@ function makeTable(array) {
   return tbl;
 }
 
+
 function updateTable() {
   var list = document.getElementById('thetable')
   list.innerHTML = "";
   list.appendChild(makeTable(factors));
+  
 }
 
-updateList();
 updateTable();
 
-function addItem() {
-  var candidate = document.getElementById("candidate");
-  if (!!candidate.value) {
-    factors.push(candidate.value);
-    updateList();
-    updateTable();
-  }
-}
-
-function removeItem() {
-  if (!!factors) {
-    for (var i = 0; i < selected.length; i++) {
-      factors.splice(selected[i], 1);
-      updateList();
-      updateTable();
+matrix = [];
+function updateMatrix(){
+  var table = document.getElementById("tbl");
+  for (let row of table.rows) 
+  {
+    var rowcells=[];
+    for(let cell of row.cells) 
+    {
+      let val = cell.innerText; 
+      rowcells.push(val);
     }
+    matrix.push(rowcells)
   }
 }
+updateMatrix();
 
+// SELECTION OF FACTORS IN LIST
 var selected = []
 
 function updateSelected() {
@@ -128,7 +133,6 @@ ulDiv.onclick = function (event) {
 
 }
 
-// prevent unneeded selection of list elements on clicks
 ulDiv.onmousedown = function () {
   return false;
 };
@@ -145,3 +149,34 @@ function singleSelect(li) {
   li.classList.add('selected');
 }
 
+//PDF DOWNLOAD
+function PDFonClick() {
+
+  var pdf = new jsPDF('p', 'pt', 'letter');
+  pdf.canvas.height = 72 * 11;
+  pdf.canvas.width = 72 * 8.5;
+
+  pdf.fromHTML(document.body);
+
+  pdf.save('report.pdf');
+};
+
+var element = document.getElementById("pdfDownload");
+element.addEventListener("click", PDFonClick);
+
+//JSON DOWNLOAD
+function JSONonClick() {
+  updateMatrix();
+  var element = document.createElement('a');
+  text = JSON.stringify(matrix)
+  filename = "analyse.json"
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+};
+
+var element = document.getElementById("jsonDownload");
+element.addEventListener("click", JSONonClick);
