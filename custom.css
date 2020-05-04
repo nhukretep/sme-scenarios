@@ -7,6 +7,14 @@ body {
   padding-bottom: 2rem;
 }
 
-h2 {
+h1 {
+  padding-top: 1rem;
+  padding-bottom:2rem;
+}
+h3 {
   margin-top: 2rem;
+  padding-top: 1rem;
+}
+footer {
+  padding-top: 2rem;
 }

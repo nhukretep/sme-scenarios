@@ -13,9 +13,9 @@
      <div class="container">
 
         <h1 id="corona-szenario-analyse-kmu">Corona Szenario-Analyse KMU</h1>
-        <h3 id="problem-entscheidungen-in-unsicheren-zeiten">Problem: Unternehmensentscheidungen in unsicheren Zeiten</h3>
+        <h5 id="problem-entscheidungen-in-unsicheren-zeiten">Problem: Unternehmensentscheidungen in unsicheren Zeiten</h5>
         <p>Es ist sicher, <em>dass</em> die Corona-Krise auch noch mittel- und langfristig die Geschäftstätigkeit von vielen KMU beeinflussen wird. Es ist aber unsicher <em>wie stark</em> und <em>wie lange</em>.</p>
-        <h3 id="lösung-szenario-analyse">Lösung: Szenario-Analyse</h3>
+        <h5 id="lösung-szenario-analyse">Lösungsansatz: Szenario-Analyse</h5>
         <p>Eine Szenario-Analyse kann helfen, Maßnahmen für verschiedene Zukunfts-Szenarien zu
             formulieren. Dazu sind vier Schritte notwendig:</p>
         <ol style="list-style-type: decimal">
@@ -33,36 +33,37 @@
 
     <div class="container">
         <h3 id="schlüsselfaktoren-ihres-unternehmens">2. Schlüsselfaktoren Ihres Unternehmens</h3>
-        <input type="text" id="candidate" />
-        <button onclick="addItemToList()">add item</button>
-        <button onclick="removeItemFromList()">remove item</button>
         <div id="thelist" ></div>
+        <input type="text" id="candidate" />
+        <button onclick="addItemToList()">Faktor hinzufügen</button><br><br>
+        <button onclick="removeItemFromList()">Ausgewählten Faktor entfernen</button>
     </div>
 
     <div class="container">
         <h3 id="szenario-analyse-für-ihr-kmu">3. Szenario-Analyse</h3>
+        <p>Für jeden Faktor lassen sich nun die Auswirkungen der einzelnen Szenarien definieren. Dazu die entsprechenden Felder der Tabelle anklicken und befüllen. </p>
         <div id="thetable"></div>
     </div>
 
     <div class="container">
         <h3 id="mögliche-maßnahmen">4. Mögliche Maßnahmen</h3>
         <h3 id="szenario-1-kurz-und-schwach-1">Szenario 1: Kurz und Schwach</h3>
-      	<textarea></textarea>
+      	<textarea style="min-width: 80%"></textarea>
         <h3 id="szenario-2-lange-und-schwach-1">Szenario 2: Lange und Schwach</h3>
-        <textarea></textarea>
+        <textarea style="min-width: 80%"></textarea>
         <h3 id="szenario-3-kurz-und-stark-1">Szenario 3: Kurz und Stark</h3>
-        <textarea></textarea>
+        <textarea style="min-width: 80%"></textarea>
         <h3 id="szenario-4-lange-und-stark-1">Szenario 4: Lange und Stark</h3>
-	<textarea></textarea>
+	    <textarea style="min-width: 80%"></textarea>
     </div>
 
     <div class="container">
         <h3 id="bericht-drucken">5. Bericht drucken</h3>
-        <button id="pdfDownload">Download pdf</button>
-        <button id="jsonDownload">Download json</button>
+        <button id="pdfDownload">Download als pdf</button>
+        <button id="jsonDownload">Download als json</button>
     </div>
 
-    <footer class="text-center">test</footer>
+    <footer class="text-center">Kontakt und Feedback: <a href="https://twitter.com/davqn" target="_blank">@DavQn</a> und <a href="https://twitter.com/nhukretep" target="_blank">@nhuKreteP</a> | Linzenz: CC-BY-SA</footer>
 
     <script src="custom.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
