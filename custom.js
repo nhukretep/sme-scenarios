@@ -153,13 +153,19 @@ function singleSelect(li) {
 //PDF DOWNLOAD
 function PDFonClick() {
 
-  var pdf = new jsPDF('p', 'pt', 'letter');
-  pdf.canvas.height = 72 * 11;
-  pdf.canvas.width = 72 * 8.5;
-
-  pdf.fromHTML(document.body);
-
-  pdf.save('report.pdf');
+  // var pdf = new jsPDF('p', 'pt', 'a4');
+  // pdf.fromHTML((document.body), 0, 0, {}, function(){
+  // pdf.save('report.pdf');})
+  var element = document.getElementById('document');
+  var opt = {
+      margin:       [10, 10, 10, 10],
+      filename:     `document.pdf`,
+      image:        { type: 'jpg', quality: 0.95 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+  };
+  html2pdf().from(element).set(opt).save();
 };
 
 var element = document.getElementById("pdfDownload");
